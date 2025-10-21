@@ -1,24 +1,6 @@
-import random
+from dice import Dice
 
-# holding each players points and name
-class Player:
-
-    def __init__(self, name):
-        self.high_score = 0 # high score for that specific player, 0 to begin with
-        self.name = name
-
-    # add points to the player
-    def add_points(self, points_to_add):
-        self.high_score += points_to_add
-
-# holding dice-throw
-class Dice:
-    
-    # roll dice between 1-6, return number
-    def roll_dice(self):
-        return random.randint(1, 6)
-
-# main logic of the game
+# logic of the game
 class Game:
 
     def __init__(self, players):
@@ -51,7 +33,6 @@ class Game:
             print('Invalid input, try again.')
             return self.hold() # ask again
         
-    
     # do roll_dice function and add return value 2-6 to variable turn_score
     # it it returns 1, make turn_score = 0
     # add dice value to turn_score
@@ -102,11 +83,3 @@ class Game:
         print('The game has started. Welcome to the Pig Dice game!')
         while not self.has_won():
             self.turn()
-
-# main class creating the players + the game, and running the game
-class Main: 
-    if __name__ == '__main__':
-        player_one = Player('Player 1')
-        player_two = Player('Player 2')
-        game_instance = Game([player_one, player_two])
-        game_instance.play_game()
