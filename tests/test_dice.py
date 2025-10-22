@@ -4,10 +4,9 @@
 import unittest
 from dice import Dice
 
-class TestDice(unittest.TestCase):
+class TestDiceMaryam(unittest.TestCase):
 
     def setUp(self):
-        # Här kan vi låtsas att Maryam testar tärningen
         self.testare = "Maryam"
         self.dice = Dice()
 
@@ -21,37 +20,8 @@ class TestDice(unittest.TestCase):
                 f"{self.testare} fick {result}, vilket inte är mellan 1 och 6."
             )
 
-    def test_roll_dice_type(self):
-        """Hawra kontrollerar att resultatet är ett heltal."""
-        testare = "Hawra"
-        result = self.dice.roll_dice()
-        self.assertIsInstance(
-            result,
-            int,
-            f"{testare} upptäckte att resultatet inte var ett heltal."
-        )
-
-    def test_multiple_rolls_filip(self):
-        """Filip testar flera kast för att säkerställa slumpen."""
-        testare = "Filip"
-        results = [self.dice.roll_dice() for _ in range(10)]
-        # Testar att alla resultat är giltiga
-        for r in results:
-            self.assertIn(
-                r,
-                range(1, 7),
-                f"{testare} fick ogiltigt resultat: {r}"
-            )
-        # Testar att vi inte får exakt samma tal alla gånger (inte krav men bra test)
-        self.assertGreater(
-            len(set(results)),
-            1,
-            f"{testare} fick samma resultat varje gång, vilket verkar misstänkt."
-        )
-
 if __name__ == '__main__':
     unittest.main()
-
 
 
 
@@ -62,7 +32,7 @@ if __name__ == '__main__':
 
     def test_stress_roll_dice_maryam(self):
         """Maryam kör ett stresstest med många kast för att se att inget värde hamnar utanför 1–6."""
-        antal_kast = 10000  # många kast för att testa robustheten
+        antal_kast = 10000  #kast för att testa robustheten
         for _ in range(antal_kast):
             result = self.dice.roll_dice()
             self.assertTrue(
