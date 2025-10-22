@@ -8,3 +8,7 @@ Programmet är uppdelat i flera klasser: Dice hanterar tärningskast, Player rep
 Spelet körs direkt i terminalen med kommandot python main.py. När spelet startar får spelarna ange sina namn och turas om att spela tills någon uppnår 100 poäng.
 
 Projektet har utvecklats med fokus på ren kod enligt PEP 8 och testbarhet med unittest. Tester körs med make test och täckningsrapport genereras med make coverage. Kodkvaliteten säkerställs med pylint och flake8. Dokumentationen skapas automatiskt med Sphinx, medan UML-diagram genereras med pyreverse och sparas under doc/uml. Projektet är licensierat under MIT-licensen och kan fritt användas och vidareutvecklas.
+
+
+UML Diagram
+![Uploading IMG_0400.jpeg…]()
