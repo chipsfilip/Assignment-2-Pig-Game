@@ -87,7 +87,8 @@ class Game:
             if player.high_score >= self.winning_goal:
                 print(
                     f'{player.name} was the first to achieve 100 points. '
-                    f'{player.name} is the winner of the game. Congratulations!'
+                    f'{player.name} is the winner of the game. '
+                    'Congratulations!'
                 )
                 return True
 
