@@ -13,7 +13,7 @@ class Game:
     # returns the current player
     def current_player(self):
         return self.players[self.current_player_index]
-    
+
     # go to the next player in the list of players
     def next_player(self):
         if self.current_player_index + 1 >= self.how_many_players:  # go back to the first player in the list
@@ -32,7 +32,7 @@ class Game:
         else:
             print('Invalid input, try again.')
             return self.hold()  # ask again
-        
+
     # do roll_dice function and add return value 2-6 to variable turn_score
     # it it returns 1, make turn_score = 0
     # add dice value to turn_score
@@ -65,9 +65,9 @@ class Game:
                     player.add_points(turn_score)
                     print(f'{player.name} holds. Their high score is now: {player.high_score}')
                     break
-        
+
         self.next_player()
-    
+
     # tallying of all peoples high score and checking 
     # if someone has won or not
     def has_won(self):
@@ -75,9 +75,9 @@ class Game:
             if player.high_score >= self.winning_goal:
                 print(f'{player.name} was the first to achieve 100 points. {player.name} is the winner of the game. Congratulations!')
                 return True
-        
+
         return False
-    
+
     # game loop
     def play_game(self):
         print('The game has started. Welcome to the Pig Dice game!')
