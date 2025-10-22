@@ -80,7 +80,7 @@ class Game:
 
         self.next_player()
 
-    # tallying of all peoples high score and checking 
+    # tallying of all peoples high score and checking
     # if someone has won or not
     def has_won(self):
         for player in self.players:
