@@ -1,5 +1,6 @@
 from dice import Dice
 
+
 # logic of the game
 class Game:
 
