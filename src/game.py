@@ -7,7 +7,7 @@ class Game:
         self.players = players
         self.winning_goal = 100
         self.dice = Dice()
-        self.current_player_index = 0 # current player's index in the player list (players) begins with 0
+        self.current_player_index = 0  # current player's index in the player list (players) begins with 0
         self.how_many_players = len(self.players)
 
     # returns the current player
@@ -16,14 +16,14 @@ class Game:
     
     # go to the next player in the list of players
     def next_player(self):
-        if self.current_player_index + 1 >= self.how_many_players: # go back to the first player in the list
+        if self.current_player_index + 1 >= self.how_many_players:  # go back to the first player in the list
             self.current_player_index = 0
-        else: # otherwise increase current player index by 1
+        else:  # otherwise increase current player index by 1
             self.current_player_index += 1
 
     # ask if the person wants to hold or continue rolling, return yes or no
     def hold(self):
-        answer = input('Do you want to hold? (enter "y" for yes or "n" for no)').lower() # lower to convert capital Y and N
+        answer = input('Do you want to hold? (enter "y" for yes or "n" for no)').lower()  # lower to convert capital Y and N
 
         if answer == 'y':
             return True
@@ -31,7 +31,7 @@ class Game:
             return False
         else:
             print('Invalid input, try again.')
-            return self.hold() # ask again
+            return self.hold()  # ask again
         
     # do roll_dice function and add return value 2-6 to variable turn_score
     # it it returns 1, make turn_score = 0

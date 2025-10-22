@@ -2,7 +2,7 @@
 class Player:
 
     def __init__(self):
-        self.high_score = 0 # high score for that specific player, 0 to begin with
+        self.high_score = 0  # high score for that specific player, 0 to begin with
         self.name = self.choose_name()
 
     # player chooses what name they want to be displayed as
