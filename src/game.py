@@ -49,7 +49,7 @@ class Game:
 
         print(
             f"It's {player.name}'s turn. Their current high score is: "
-            "{player.high_score}"
+            f"{player.high_score}"
         )
 
         while True:
@@ -74,7 +74,7 @@ class Game:
                     player.add_points(turn_score)
                     print(
                         f'{player.name} holds. Their high score is now: '
-                        '{player.high_score}'
+                        f'{player.high_score}'
                     )
                     break
 
@@ -87,7 +87,7 @@ class Game:
             if player.high_score >= self.winning_goal:
                 print(
                     f'{player.name} was the first to achieve 100 points. '
-                    '{player.name} is the winner of the game. Congratulations!'
+                    f'{player.name} is the winner of the game. Congratulations!'
                 )
                 return True
 
