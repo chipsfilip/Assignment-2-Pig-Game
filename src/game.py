@@ -80,14 +80,15 @@ class Game:
 
         self.next_player()
 
-    # tallying of all peoples high score and checking 
+    # tallying of all peoples high score and checking
     # if someone has won or not
     def has_won(self):
         for player in self.players:
             if player.high_score >= self.winning_goal:
                 print(
                     f'{player.name} was the first to achieve 100 points. '
-                    f'{player.name} is the winner of the game. Congratulations!'
+                    f'{player.name} is the winner of the game. '
+                    'Congratulations!'
                 )
                 return True
 
