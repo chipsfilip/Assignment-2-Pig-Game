@@ -1,8 +1,7 @@
-# computer player that plays automatically (AI)
 class Computer:
-
-    # computer holds if points >= 20
+    """Computer player that plays automatically (AI)"""
     def intelligence(self, turn_score):
+        """Computer holds if points is greater than 20"""
         if turn_score >= 20:
             return True
         else:

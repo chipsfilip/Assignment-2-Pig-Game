@@ -2,38 +2,37 @@ from dice import Dice
 from computer import Computer
 
 
-# logic of the game
 class Game:
-
+    """Main logic of the game"""
     def __init__(self, players):
+        """Initial setup for the game"""
         self.players = players
         self.winning_goal = 100
         self.dice = Dice()
         self.computer = Computer()
-        self.current_player_index = 0  # current player's index (begins with 0)
+        self.current_player_index = 0  # Current player's index (begins with 0)
         self.how_many_players = len(self.players)
 
-    # returns the current player
     def current_player(self):
+        """Returns the current player"""
         return self.players[self.current_player_index]
 
-    # go to the next player in the list of players
     def next_player(self):
-        # if player index should exceed amount of players, go back to the
+        """Go to the next player in the list of players"""
+        # If player index should exceed amount of players, go back to the
         # first player in the list
         if self.current_player_index + 1 >= self.how_many_players:
             self.current_player_index = 0
-        # otherwise increase current player index by 1
+        # Otherwise increase current player index by 1
         else:
             self.current_player_index += 1
 
-    # ask if the person wants to hold or continue rolling, return True (hold) 
-    # or False (continue rolling)
     def hold(self, turn_score):
+        """Ask if the person wants to hold or continue rolling."""
         if self.current_player().is_computer:
             return self.computer.intelligence(turn_score)
         else:
-            # use built in "lower" function to convert capital Y and N
+            # Use built in "lower" function to convert capital Y and N
             answer = input(
                 'Do you want to hold? '
                 '("y" - yes, or "n" - no)'
@@ -45,14 +44,10 @@ class Game:
                 return False
             else:
                 print('Invalid input, try again.')
-                return self.hold(turn_score)  # ask again
+                return self.hold(turn_score)  # Ask again
 
-    # do roll_dice function and add return value 2-6 to variable turn_score
-    # it it returns 1, make turn_score = 0
-    # add dice value to turn_score
-    # ask if they want to try again, if yes -> roll dice again,
-    # if not -> add turn score to high score
     def turn(self):
+        """Turn logic"""
         turn_score = 0
         player = self.current_player()
 
@@ -78,7 +73,7 @@ class Game:
 
                 print(f'The round score is: {turn_score}')
 
-                # ask if they want to hold
+                # Ask if they want to hold
                 if self.hold(turn_score):
                     player.add_points(turn_score)
                     print(
@@ -86,12 +81,10 @@ class Game:
                         f'{player.high_score}'
                     )
                     break
-
         self.next_player()
 
-    # tallying of all peoples high score and checking
-    # if someone has won or not
     def has_won(self):
+        """Check if someone has won or not"""
         for player in self.players:
             if player.high_score >= self.winning_goal:
                 print(
@@ -100,11 +93,10 @@ class Game:
                     'Congratulations!'
                 )
                 return True
-
         return False
 
-    # game loop
     def play_game(self):
+        """Loop game until someone has won"""
         print('The game has started. Welcome to the Pig Dice game!')
         while not self.has_won():
             self.turn()
