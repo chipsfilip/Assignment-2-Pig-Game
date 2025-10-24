@@ -1,6 +1,5 @@
 # holding each players points and name
 class Player:
-
     def __init__(self):
         self.high_score = 0  # player's high score (begins with 0)
         self.is_computer = self.ask_if_computer()  # player type (computer)

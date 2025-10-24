@@ -4,7 +4,6 @@ from computer import Computer
 
 # logic of the game
 class Game:
-
     def __init__(self, players):
         self.players = players
         self.winning_goal = 100
