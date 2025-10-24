@@ -1,4 +1,5 @@
 from dice import Dice
+from computer import Computer
 
 
 # logic of the game
@@ -8,6 +9,7 @@ class Game:
         self.players = players
         self.winning_goal = 100
         self.dice = Dice()
+        self.computer = Computer()
         self.current_player_index = 0  # current player's index (begins with 0)
         self.how_many_players = len(self.players)
 
@@ -25,18 +27,25 @@ class Game:
         else:
             self.current_player_index += 1
 
-    # ask if the person wants to hold or continue rolling, return yes or no
-    def hold(self):
-        # use built in "lower" function to convert capital Y and N
-        answer = input('Do you want to hold? ("y" - yes, or "n" - no)').lower()
-
-        if answer == 'y':
-            return True
-        elif answer == 'n':
-            return False
+    # ask if the person wants to hold or continue rolling, return True (hold) 
+    # or False (continue rolling)
+    def hold(self, turn_score):
+        if self.current_player().is_computer:
+            return self.computer.intelligence(turn_score)
         else:
-            print('Invalid input, try again.')
-            return self.hold()  # ask again
+            # use built in "lower" function to convert capital Y and N
+            answer = input(
+                'Do you want to hold? '
+                '("y" - yes, or "n" - no)'
+            ).lower()
+
+            if answer == 'y':
+                return True
+            elif answer == 'n':
+                return False
+            else:
+                print('Invalid input, try again.')
+                return self.hold(turn_score)  # ask again
 
     # do roll_dice function and add return value 2-6 to variable turn_score
     # it it returns 1, make turn_score = 0
@@ -58,7 +67,7 @@ class Game:
             print(f'{player.name} rolled the dice.')
 
             if dice_value == 1:
-                print("It's a 1, you lose your round points.")
+                print(f"It's a 1, {player.name} lost their round points.")
 
                 turn_score = 0
                 break
@@ -70,7 +79,7 @@ class Game:
                 print(f'The round score is: {turn_score}')
 
                 # ask if they want to hold
-                if self.hold():
+                if self.hold(turn_score):
                     player.add_points(turn_score)
                     print(
                         f'{player.name} holds. Their high score is now: '
