@@ -1,5 +1,5 @@
 from dice import Dice
-from intelligence import Intelligence
+from computer import Computer
 
 
 # logic of the game
@@ -9,7 +9,7 @@ class Game:
         self.players = players
         self.winning_goal = 100
         self.dice = Dice()
-        self.intelligence = Intelligence()
+        self.computer = Computer()
         self.current_player_index = 0  # current player's index (begins with 0)
         self.how_many_players = len(self.players)
 
@@ -31,7 +31,7 @@ class Game:
     # or False (continue rolling)
     def hold(self, turn_score):
         if self.current_player().is_computer:
-            return self.intelligence.computer_hold(turn_score)
+            return self.computer.intelligence(turn_score)
         else:
             # use built in "lower" function to convert capital Y and N
             answer = input(

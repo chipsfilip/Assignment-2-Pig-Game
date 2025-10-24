@@ -1,8 +1,8 @@
 # computer player that plays automatically (AI)
-class Intelligence:
+class Computer:
 
     # computer holds if points >= 20
-    def computer_hold(self, turn_score):
+    def intelligence(self, turn_score):
         if turn_score >= 20:
             return True
         else:
