@@ -11,4 +11,4 @@ Projektet har utvecklats med fokus på ren kod enligt PEP 8 och testbarhet med u
 
 
 UML Diagram
-![Uploading IMG_0400.jpeg…]()
+![UML Diagram](/docs/UML.jpeg)
