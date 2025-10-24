@@ -3,14 +3,14 @@ class Player:
 
     def __init__(self):
         self.high_score = 0  # player's high score (begins with 0)
-        self.is_computer = self.is_computer()  # player type (computer/person)
+        self.is_computer = self.ask_if_computer()  # player type (computer)
         if self.is_computer:
             self.name = 'Computer'
         else:
             self.name = self.choose_name()
 
     # ask if player is computer or person
-    def is_computer(self):
+    def ask_if_computer(self):
         # use built in "lower" function to convert capital C and P
         player_type = input(
             'Do you want this player to be a computer or a person? '
@@ -22,7 +22,7 @@ class Player:
             return False
         else:
             print('Invalid input. Please try again!')
-            return self.is_computer()
+            return self.ask_if_computer()
 
     # player chooses what name they want to be displayed as
     def choose_name(self):
