@@ -27,7 +27,7 @@ class Game:
         else:
             self.current_player_index += 1
 
-    # ask if the person wants to hold or continue rolling, return True (hold) 
+    # ask if the person wants to hold or continue rolling, return True (hold)
     # or False (continue rolling)
     def hold(self, turn_score):
         if self.current_player().is_computer:
